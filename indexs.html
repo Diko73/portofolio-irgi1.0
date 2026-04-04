@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to my domain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b263b; /* biru gelap cerah */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Lingkaran blur latar */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            background: radial-gradient(circle, #2563eb, #1e3a8a);
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -150px;
+            right: -50px;
+            background: radial-gradient(circle, #3498db, #1f4a7a);
+            filter: blur(100px);
+        }
+
+        .circle-3 {
+            width: 250px;
+            height: 250px;
+            top: 40%;
+            left: 60%;
+            background: radial-gradient(circle, #38bdf8, #0f4c75);
+            filter: blur(90px);
+            opacity: 0.5;
+        }
+
+        /* Partikel kecil */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #90d0ff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #4aa5ff;
+            z-index: 5;
+            opacity: 0.5;
+        }
+        .particle:nth-child(4) { top: 20%; left: 15%; }
+        .particle:nth-child(5) { top: 70%; left: 85%; width: 6px; height: 6px; }
+        .particle:nth-child(6) { top: 85%; left: 20%; width: 3px; height: 3px; }
+        .particle:nth-child(7) { top: 30%; left: 90%; width: 5px; height: 5px; }
+        .particle:nth-child(8) { top: 60%; left: 10%; width: 7px; height: 7px; }
+
+        /* Kontainer teks dengan animasi slide dari bawah */
+        .center {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            padding: 0 1rem;
+            max-width: 100%;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Teks utama dengan animasi pop (scale + fade) */
+        h1 {
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 20px rgba(0, 191, 255, 0.8), 0 0 40px rgba(0, 191, 255, 0.5);
+            margin-bottom: 0.5rem;
+
+            /* Awal animasi: tersembunyi dan sedikit mengecil */
+            opacity: 0;
+            transform: scale(0.9);
+            animation: popIn 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+            animation-delay: 0.3s; /* muncul setelah container mulai slide */
+        }
+
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Subteks dengan fade-in lambat */
+.sub {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(180, 220, 255, 0.7);
+    text-shadow: 0 0 12px #3b82f6;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 0.9s forwards;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sub:hover{
+color:#ffffff;
+text-shadow:0 0 20px #38bdf8,0 0 40px #38bdf8;
+transform:scale(1.05);
+}
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: clamp(1.5rem, 6vw, 2.2rem);
+                letter-spacing: 2px;
+            }
+            .sub {
+                letter-spacing: 4px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Latar belakang blur -->
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+
+    <!-- Partikel -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Konten utama dengan animasi -->
+    <div class="center">
+        <h1>welcome to my domain</h1>
+   <div class="sub" onclick="enterSite()">tekan untuk melanjutkan</div>
+    </div>
+
+    <script>
+function enterSite(){
+window.location.href="portofolio.html";
+}
+
+
+</script>
+</body>
+</html>
+
